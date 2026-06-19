@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DataLibrary/DataLibrary.csproj" />
+  <Project Path="TradeCenterApi/TradeCenterApi.csproj" />
+  <Project Path="TradeCenterApp/TradeCenterApp.csproj" Id="f7999600-3ac8-44ae-b542-689ee03074ca" />
+</Solution>

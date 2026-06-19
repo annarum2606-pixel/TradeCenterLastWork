@@ -1,0 +1,6 @@
+@TradeCenterApi_HostAddress = http://localhost:5044
+
+GET {{TradeCenterApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
