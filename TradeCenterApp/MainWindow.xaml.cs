@@ -157,6 +157,18 @@ namespace TradeCenterApp
 
             ProductList.ItemsSource = filteredProducts;
             CountLabel.Text = $"Записей: {filteredCount} из {totalCount}";
+
+            //Показываем сообщение, если товаров нет
+            if (filteredProducts.Count == 0)
+            {
+                NoProductsLabel.Visibility = Visibility.Visible;
+                ProductList.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                NoProductsLabel.Visibility = Visibility.Collapsed;
+                ProductList.Visibility = Visibility.Visible;
+            }
         }
 
         ///<summary>

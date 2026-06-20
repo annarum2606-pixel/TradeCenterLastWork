@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TradeCenterApi.Controllers
 {
-
     ///<summary>
     ///API контроллер для управления товарами
     ///</summary>
@@ -12,12 +11,12 @@ namespace TradeCenterApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
         ///<summary>
         ///Инициализирует новый экземпляр контроллера товаров API
         ///</summary>
-        ///<param name="context">Контекст БД</param>
+        ///<param name="context">Контекст базы данных</param>
         public ProductsController(AppDbContext context)
         {
             _context = context;

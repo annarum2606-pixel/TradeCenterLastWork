@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeCenterApp"
         mc:Ignorable="d"
-        Title="Терминал заказа товаров" 
-        Height="600" Width="900"
-        WindowStartupLocation="CenterScreen"
+        Title="Заказ товаров" 
+        Height="500" Width="1000"
         Loaded="MainWindow_Loaded"
         FontFamily="Calibri"
         Background="#FFFFFF"
@@ -18,97 +17,75 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" 
                 Background="#DAA520" 
                 Padding="10" 
-                Margin="-10,-10,-10,10">
+                Margin="-10,-10,-10,5">
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Image Grid.Column="0" 
-                       Source="images/icon.png" 
-                       Width="100" 
-                       Height="50"
-                       Margin="0,0,10,0"
-                       Stretch="Uniform"/>
+                        Source="images/icon.png" 
+                        Width="100"
+                        Height="50"/>
 
-                <TextBlock Grid.Column="1" 
-                           Text="Терминал заказа товаров" 
-                           FontSize="24" 
-                           FontWeight="Bold" 
-                           VerticalAlignment="Center"
-                           Foreground="#FFFFFF"/>
+                <TextBlock Grid.Column="1"
+                        Text="Заказ товаров" 
+                        FontSize="24" 
+                        FontWeight="Bold" 
+                        VerticalAlignment="Center"
+                        Foreground="#FFFFFF"/>
 
                 <!--ФИО пользователя-->
                 <TextBlock Grid.Column="2" 
-                           x:Name="UserFullNameLabel"
-                           Text=""
-                           VerticalAlignment="Center"
-                           Foreground="#FFFFFF"
-                           FontSize="14"
-                           FontWeight="SemiBold"
-                           Margin="0,0,15,0"
-                           Visibility="Collapsed"/>
+                        x:Name="UserFullNameLabel"
+                        Text=""
+                        VerticalAlignment="Center"
+                        Foreground="#FFFFFF"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Margin="0,0,15,0"
+                        Visibility="Collapsed"/>
 
                 <!--Кнопка для админов и менеджеров-->
                 <Button Grid.Column="3"
                         x:Name="OrdersButton"
                         Content="Заказы"
-                        Width="80"
-                        Height="30"
+                        Width="100"
+                        Height="50"
                         Background="#B8860B"
                         Foreground="#FFFFFF"
                         FontWeight="Bold"
-                        FontSize="12"
+                        FontSize="16"
                         FontFamily="Calibri"
                         Margin="0,0,10,0"
-                        Cursor="Hand"
                         Click="OrdersButton_Click"
                         Visibility="Collapsed">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#B8860B"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#A0750A"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+
                 </Button>
 
                 <!--Кнопка Войти/Выйти-->
                 <Button Grid.Column="4"
                         x:Name="AuthButton"
                         Content="Войти"
-                        Width="80"
-                        Height="30"
+                        Width="100"
+                        Height="50"
                         Background="#B8860B"
                         Foreground="#FFFFFF"
                         FontWeight="Bold"
-                        FontSize="12"
+                        FontSize="16"
                         FontFamily="Calibri"
-                        Cursor="Hand"
                         Click="AuthButton_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#B8860B"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#A0750A"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
                 </Button>
             </Grid>
         </Border>
@@ -116,9 +93,8 @@
         <!--Фильтры и сортировка-->
         <Border Grid.Row="1" 
                 Background="#DAA520" 
-                Padding="10" 
-                Margin="0,0,0,10"
-                CornerRadius="0">
+                Padding="10">
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -130,79 +106,82 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="15"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <!--Поиск-->
                     <TextBlock Grid.Column="0" 
-                               Text="Поиск:" 
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               Margin="0,0,5,0"
-                               Foreground="#FFFFFF"/>
+                            Text="Поиск:" 
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Margin="0,0,5,0"
+                            Foreground="#FFFFFF"/>
+
                     <TextBox Grid.Column="1" 
-                             x:Name="SearchTextBox" 
-                             Height="25"
-                             VerticalContentAlignment="Center"
-                             TextChanged="SearchTextBox_TextChanged"
-                             Background="#FFFFFF"
-                             FontFamily="Calibri"/>
+                            x:Name="SearchTextBox" 
+                            Height="20"
+                            VerticalContentAlignment="Center"
+                            TextChanged="SearchTextBox_TextChanged"
+                            Background="#FFFFFF"
+                            FontFamily="Calibri"/>
 
                     <!--Производитель-->
                     <TextBlock Grid.Column="3" 
-                               Text="Производитель:" 
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               Margin="10,0,5,0"
-                               Foreground="#FFFFFF"/>
+                            Text="Производитель:" 
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Margin="5,0,5,0"
+                            Foreground="#FFFFFF"/>
+
                     <ComboBox Grid.Column="4" 
-                              x:Name="ManufacturerComboBox"
-                              Height="25"
-                              VerticalContentAlignment="Center"
-                              SelectionChanged="ManufacturerComboBox_SelectionChanged"
-                              Background="#FFFFFF"
-                              FontFamily="Calibri"/>
+                            x:Name="ManufacturerComboBox"
+                            Height="20"
+                            VerticalContentAlignment="Center"
+                            SelectionChanged="ManufacturerComboBox_SelectionChanged"
+                            FontFamily="Calibri"/>
 
                     <!--Цена-->
-                    <TextBlock Grid.Column="6" 
-                               Text="Цена от:" 
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               Margin="10,0,5,0"
-                               Foreground="#FFFFFF"/>
-                    <TextBox Grid.Column="7" 
-                             x:Name="MinPriceTextBox" 
-                             Height="25"
-                             Text="0"
-                             VerticalContentAlignment="Center"
-                             TextChanged="PriceTextBox_TextChanged"
-                             Background="#FFFFFF"
-                             FontFamily="Calibri"/>
+                    <TextBlock Grid.Column="5" 
+                            Text="Цена от:" 
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Margin="5,0,0,0"
+                            Foreground="#FFFFFF"/>
 
-                    <TextBlock Grid.Column="8" 
-                               Text="до" 
-                               VerticalAlignment="Center"
-                               Margin="5,0,75,0"
-                               Foreground="#FFFFFF" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Column="6" 
+                            x:Name="MinPriceTextBox" 
+                            Height="20"
+                            Width="50"
+                            Text="0"
+                            VerticalContentAlignment="Center"
+                            TextChanged="PriceTextBox_TextChanged"
+                            Background="#FFFFFF"
+                            FontFamily="Calibri"/>
+
+                    <TextBlock Grid.Column="7" 
+                            Text="до:" 
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"
+                            Margin="5,0,0,0"
+                            Foreground="#FFFFFF"/>
 
                     <TextBox Grid.Column="8" 
-                             x:Name="MaxPriceTextBox" 
-                             Height="25"
-                             Text="999999"
-                             Width="80"
-                             VerticalContentAlignment="Center"
-                             TextChanged="PriceTextBox_TextChanged"
-                             Background="#FFFFFF"
-                             FontFamily="Calibri" Grid.ColumnSpan="3" Margin="27,0,146,0"/>
+                            x:Name="MaxPriceTextBox" 
+                            Height="20"
+                            Width="50"
+                            Text="9999"
+                            VerticalContentAlignment="Center"
+                            TextChanged="PriceTextBox_TextChanged"
+                            Background="#FFFFFF"
+                            FontFamily="Calibri"
+                            Margin="5,0,0,0"/>
                 </Grid>
 
                 <!--Сортировка и счетчик-->
@@ -210,141 +189,142 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="110"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <!--Сортировка-->
                     <TextBlock Grid.Column="0" 
-                               Text="Сортировка:" 
-                               VerticalAlignment="Center"
-                               FontWeight="SemiBold"
-                               Margin="0,0,5,0"
-                               Foreground="#FFFFFF"/>
+                            Text="Сортировка:" 
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Margin="0,0,5,0"
+                            Foreground="#FFFFFF"/>
+
                     <ComboBox Grid.Column="1" 
-                              x:Name="SortComboBox"
-                              Height="25"
-                              VerticalContentAlignment="Center"
-                              SelectionChanged="SortComboBox_SelectionChanged"
-                              Background="#FFFFFF"
-                              FontFamily="Calibri">
+                            x:Name="SortComboBox"
+                            Height="20"
+                            VerticalContentAlignment="Center"
+                            SelectionChanged="SortComboBox_SelectionChanged"
+                            Background="#FFFFFF"
+                            FontFamily="Calibri">
                         <ComboBoxItem Content="По названию" IsSelected="True"/>
                         <ComboBoxItem Content="По цене"/>
                         <ComboBoxItem Content="По производителю"/>
                     </ComboBox>
 
-                    <CheckBox Grid.Column="3" 
-                              x:Name="DescendingCheckBox"
-                              Content="По убыванию"
-                              VerticalAlignment="Center"
-                              Margin="10,0,61,0"
-                              Foreground="#FFFFFF"
-                              Checked="DescendingCheckBox_Checked"
-                              Unchecked="DescendingCheckBox_Unchecked" Grid.ColumnSpan="3"/>
+                    <CheckBox Grid.Column="2" 
+                            x:Name="DescendingCheckBox"
+                            Content="По убыванию"
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"
+                            Margin="5,0,0,0"
+                            Foreground="#FFFFFF"
+                            Checked="DescendingCheckBox_Checked"
+                            Unchecked="DescendingCheckBox_Unchecked"/>
 
                     <!--Счетчик-->
-                    <TextBlock Grid.Column="6" 
-                               x:Name="CountLabel"
-                               Text="Записей: 0 из 0"
-                               VerticalAlignment="Center"
-                               Margin="3,0,477,0"
-                               FontWeight="Bold"
-                               Foreground="#FFFFFF"/>
+                    <TextBlock Grid.Column="3" 
+                            x:Name="CountLabel"
+                            Text="Записей: 0 из 0"
+                            VerticalAlignment="Center"
+                            Margin="5,0,0,0"
+                            FontWeight="Bold"
+                            Foreground="#FFFFFF"/>
                 </Grid>
             </Grid>
         </Border>
 
         <!--Список товаров-->
         <ScrollViewer Grid.Row="3" 
-                      VerticalScrollBarVisibility="Auto"
-                      Background="#FFFFFF">
-            <ItemsControl x:Name="ProductList" Background="#FFFFFF">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="#DAA520" 
-                                BorderThickness="1" 
-                                Padding="10" 
-                                Margin="0,5,0,5"
-                                Background="#FFFFFF"
-                                CornerRadius="0">
-                            <Border.Style>
-                                <Style TargetType="Border">
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#FFF5E6"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Border.Style>
+            VerticalScrollBarVisibility="Auto"
+            Background="#FFFFFF">
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+            <Grid>
+                <ItemsControl x:Name="ProductList" Background="#FFFFFF">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#DAA520" 
+                                    BorderThickness="2" 
+                                    Padding="10" 
+                                    Margin="0,5,0,5"
+                                    Background="#FFFFFF">
 
-                                <StackPanel Grid.Column="0">
-                                    <TextBlock Text="{Binding Name}" 
-                                               FontSize="16" 
-                                               FontWeight="Bold"
-                                               TextWrapping="Wrap"
-                                               Foreground="#000000"
-                                               FontFamily="Calibri"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <TextBlock Text="{Binding Description}" 
-                                               TextWrapping="Wrap"
-                                               Foreground="#000000"
-                                               Margin="0,5,0,5"
-                                               FontFamily="Calibri"/>
-
-                                    <TextBlock Text="{Binding Manufacturer, StringFormat=Производитель: {0}}"
-                                               Foreground="#000000"
-                                               FontFamily="Calibri"/>
-
-                                    <TextBlock Text="{Binding Price, StringFormat={}{0:N0} ₽}" 
-                                               FontWeight="Bold"
-                                               FontSize="14"
-                                               Foreground="#B8860B"
-                                               Margin="0,5,0,0"
-                                               FontFamily="Calibri"/>
-
-                                    <TextBlock Text="{Binding Amount, StringFormat=В наличии: {0} шт.}"
-                                               Foreground="#000000"
-                                               FontSize="12"
-                                               FontFamily="Calibri"/>
-                                </StackPanel>
-
-                                <Button Grid.Column="1" 
-                                        Content="Заказать" 
+                                    <Image Grid.Column="0" 
+                                        Source="{Binding ImagePath}"
                                         Width="100" 
-                                        Height="35" 
-                                        VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center"
-                                        Background="#B8860B"
-                                        Foreground="#FFFFFF"
-                                        FontWeight="Bold"
-                                        FontSize="12"
-                                        FontFamily="Calibri"
-                                        Cursor="Hand">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="#B8860B"/>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="#A0750A"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                                        Height="100"
+                                        Margin="0,0,20,0"
+                                        VerticalAlignment="Center"/>
+
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="{Binding Name}"
+                                                   FontSize="16" 
+                                                   FontWeight="Bold"
+                                                   TextWrapping="Wrap"
+                                                   Foreground="#000000"
+                                                   FontFamily="Calibri"/>
+
+                                        <TextBlock Text="{Binding Description}" 
+                                                   TextWrapping="Wrap"
+                                                   Foreground="#000000"
+                                                   Margin="0,5,10,5"
+                                                   FontFamily="Calibri"/>
+
+                                        <TextBlock Text="{Binding Manufacturer, StringFormat=Производитель: {0}}"
+                                                   Foreground="#000000"
+                                                   FontFamily="Calibri"/>
+
+                                        <TextBlock Text="{Binding Price, StringFormat={}{0:N0} ₽}" 
+                                                   FontWeight="Bold"
+                                                   FontSize="14"
+                                                   Foreground="#B8860B"
+                                                   Margin="0,5,0,0"
+                                                   FontFamily="Calibri"/>
+
+                                        <TextBlock Text="{Binding Amount, StringFormat=В наличии: {0} шт.}"
+                                                   Foreground="#000000"
+                                                   FontSize="12"
+                                                   FontFamily="Calibri"/>
+                                    </StackPanel>
+
+                                    <Button Grid.Column="2" 
+                                            Content="Заказать" 
+                                            Width="100"
+                                            Height="50"
+                                            VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center"
+                                            Background="#B8860B"
+                                            Foreground="#FFFFFF"
+                                            FontWeight="Bold"
+                                            FontSize="16"
+                                            FontFamily="Calibri">
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <!--Сообщение при отсутствии товаров-->
+                <TextBlock x:Name="NoProductsLabel"
+                           Text="Товары не найдены"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="#C0C0C0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"
+                           Margin="0,50,0,0"/>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </Window>

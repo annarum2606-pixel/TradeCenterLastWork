@@ -9,6 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\1.jpg" />
+    <None Remove="images\10.jpg" />
+    <None Remove="images\11.jpg" />
+    <None Remove="images\12.jpg" />
+    <None Remove="images\13.jpg" />
+    <None Remove="images\14.jpg" />
+    <None Remove="images\15.jpg" />
+    <None Remove="images\16.jpg" />
+    <None Remove="images\17.jpg" />
+    <None Remove="images\18.jpg" />
+    <None Remove="images\19.jpg" />
+    <None Remove="images\2.jpg" />
+    <None Remove="images\20.jpg" />
+    <None Remove="images\3.jpg" />
+    <None Remove="images\4.jpg" />
+    <None Remove="images\5.jpg" />
+    <None Remove="images\6.jpg" />
+    <None Remove="images\7.jpg" />
+    <None Remove="images\8.jpg" />
+    <None Remove="images\9.jpg" />
     <None Remove="images\icon.ico" />
     <None Remove="images\icon.png" />
   </ItemGroup>
@@ -22,6 +42,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\1.jpg" />
+    <Resource Include="images\10.jpg" />
+    <Resource Include="images\11.jpg" />
+    <Resource Include="images\12.jpg" />
+    <Resource Include="images\13.jpg" />
+    <Resource Include="images\14.jpg" />
+    <Resource Include="images\15.jpg" />
+    <Resource Include="images\16.jpg" />
+    <Resource Include="images\17.jpg" />
+    <Resource Include="images\18.jpg" />
+    <Resource Include="images\19.jpg" />
+    <Resource Include="images\2.jpg" />
+    <Resource Include="images\20.jpg" />
+    <Resource Include="images\3.jpg" />
+    <Resource Include="images\4.jpg" />
+    <Resource Include="images\5.jpg" />
+    <Resource Include="images\6.jpg" />
+    <Resource Include="images\7.jpg" />
+    <Resource Include="images\8.jpg" />
+    <Resource Include="images\9.jpg" />
     <Resource Include="images\icon.ico" />
     <Resource Include="images\icon.png" />
   </ItemGroup>

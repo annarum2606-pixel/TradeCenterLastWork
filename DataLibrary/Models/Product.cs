@@ -64,5 +64,11 @@ namespace DataLibrary.Models
         ///Путь к фотографии товара(может быть NULL)
         ///</summary>
         public string? Photo { get; set; }
+
+        /// <summary>
+        /// Полный путь к изображению
+        /// </summary>
+        [NotMapped]
+        public string ImagePath { get; set; }
     }
 }

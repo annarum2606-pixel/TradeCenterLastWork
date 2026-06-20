@@ -1,16 +1,16 @@
-using Microsoft.EntityFrameworkCore;
 using DataLibrary.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Подключение к БД
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=TradeCenterDB;Trusted_Connection=True;TrustServerCertificate=True;"));
-
+// Добавление сервисов в контейнер
 builder.Services.AddControllers();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=TradeCenterDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Command Timeout=0"));
 
 var app = builder.Build();
 
+// Настройка HTTP конвейера
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
