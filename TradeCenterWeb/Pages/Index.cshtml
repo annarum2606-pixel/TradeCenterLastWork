@@ -1,0 +1,36 @@
+﻿@page
+@model TradeCenterWeb.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Товары";
+}
+
+<h2>Список товаров</h2>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div style="padding:12px; margin-bottom:16px;">@Model.Message</div>
+}
+
+@if (!Model.Products.Any())
+{
+    <div style="padding:12px;">Товары не найдены.</div>
+}
+else
+{
+    @foreach (var product in Model.Products)
+    {
+        <div style="border:1px solid #DAA520; padding:16px; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between">
+            <div>
+                <strong>@product.Name</strong><br/>
+                @product.Description<br/>
+                <strong>Производитель:</strong> @product.Manufacturer<br/>
+                <strong>Цена:</strong> @product.Price ₽<br/>
+            </div>
+            <form method="post" asp-page-handler="Order">
+                <input type="hidden" name="article" value="@product.Article"/>
+                <button style="background:#B8860B; color:#fff; border:none; padding:10px 28px; cursor:pointer;">Заказать</button>
+            </form>
+        </div>
+    }
+}

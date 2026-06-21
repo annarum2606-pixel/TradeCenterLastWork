@@ -1,0 +1,65 @@
+/* Основной фон, шрифты и цвета*/
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: #FFFFFF;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Дополнительный фон для блоков */
+.bg-gold {
+    background-color: #DAA520;
+}
+
+/* Акцентные элементы */
+.accent {
+    background-color: #B8860B;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Карточка товара */
+.product-card {
+    background: #FFFFFF;
+    border: 1px solid #DAA520;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #B8860B;
+    font-size: 16px;
+}
+
+.btn-order {
+    background-color: #B8860B;
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-order:hover {
+    background-color: #9a7209;
+}
