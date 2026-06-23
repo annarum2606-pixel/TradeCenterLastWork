@@ -38,16 +38,11 @@ namespace DataLibrary.Models
         ///<summary>
         ///Код для получения заказа
         ///</summary>
-        public string PickupCode { get; set; }
+        public string Code { get; set; }
 
         ///<summary>
         ///Статус заказа(Новый, В обработке, Доставлен и т.д.)
         ///</summary>
         public string Status { get; set; }
-
-        ///<summary>
-        ///Общая сумма заказа(может быть NULL)
-        ///</summary>
-        public decimal? TotalSum { get; set; }
     }
 }

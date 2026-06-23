@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:TradeCenterApp"
         mc:Ignorable="d"
         Title="Заказ товаров" 
-        Height="500" Width="1000"
+        Height="600"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
         Loaded="MainWindow_Loaded"
         FontFamily="Calibri"
-        Background="#FFFFFF"
         Icon="Images/icon.ico">
 
     <Grid Margin="10" Background="#FFFFFF">

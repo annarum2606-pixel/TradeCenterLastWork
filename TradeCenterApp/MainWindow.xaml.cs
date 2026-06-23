@@ -24,8 +24,8 @@ namespace TradeCenterApp
         public MainWindow()
         {
             InitializeComponent();
-            productService = new ProductService();
-            authService = new AuthService();
+            productService = new();
+            authService = new();
             Loaded += MainWindow_Loaded;
         }
 
@@ -199,7 +199,6 @@ namespace TradeCenterApp
             else
             {
                 var loginWindow = new LoginWindow(authService);
-                loginWindow.Owner = this;
                 loginWindow.ShowDialog();
 
                 if (loginWindow.IsAuthenticated && loginWindow.AuthenticatedUser is not null)
@@ -226,8 +225,8 @@ namespace TradeCenterApp
                 return;
             }
 
-            MessageBox.Show($"Открытие окна управления заказами для {currentUser.FullName} (роль: {currentUser.Role})",
-                "Заказы", MessageBoxButton.OK, MessageBoxImage.Information);
+            var ordersWindow = new OrdersWindow();
+            ordersWindow.ShowDialog();
         }
 
         ///<summary>

@@ -8,9 +8,9 @@
         Title="Вход в систему" 
         Height="300" 
         Width="300"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         FontFamily="Calibri"
-        Background="#FFFFFF"
         Icon="Images/icon.ico"
         Loaded="LoginWindow_Loaded">
 

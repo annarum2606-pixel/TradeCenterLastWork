@@ -63,7 +63,7 @@ namespace DataLibrary.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=TradeCenterDB;Trusted_Connection=True;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=TradeCenterDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Command Timeout=0");
             }
         }
     }
